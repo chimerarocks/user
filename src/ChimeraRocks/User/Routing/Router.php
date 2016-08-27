@@ -8,7 +8,7 @@ class Router
 {
 	public function auth()
 	{	
-		$namespace = "\\ChimeraRocks\\\User\\Controllers";
+		$namespace = "\\ChimeraRocks\\User\\Controllers";
 
 		Route::group(['namespace' => null], function () use ($namespace) {
 			// Authentication Routes...
