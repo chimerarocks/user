@@ -8,8 +8,8 @@ Route::group([
 	], function() {
 	Route::get('/', ['uses' => 'AdminUserController@index', 'as' => 'index']);
 	Route::get('/create', ['uses' => 'AdminUserController@create', 'as' => 'create']);
-	Route::user('/store', ['uses' => 'AdminUserController@store', 'as' => 'store']);
+	Route::post('/store', ['uses' => 'AdminUserController@store', 'as' => 'store']);
 	Route::get('/edit/{id}', ['uses' => 'AdminUserController@edit', 'as' => 'edit']);
-	Route::user('/update/{id}', ['uses' => 'AdminUserController@update', 'as' => 'update']);
+	Route::post('/update/{id}', ['uses' => 'AdminUserController@update', 'as' => 'update']);
 	
 });
