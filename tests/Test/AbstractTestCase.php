@@ -37,7 +37,8 @@ abstract class AbstactTestCase extends TestCase
 	{
 		return [
 			\Illuminate\Auth\AuthServiceProvider::class,
-			\Illuminate\Auth\Passwords\PasswordResetServiceProvider::class
+			\Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
+			\ChimeraRocks\User\Providers\UserServiceProvider::class,
 		];
 	}
 }

@@ -21,6 +21,10 @@ class UserServiceProvider extends ServiceProvider
 			__DIR__ . '/../../../resources/views/auth' => base_path('resources/views/auth')
 			],'auth');
 
+		$this->publishes([
+			__DIR__ . '/../../../resources/views/email' => base_path('resources/views/email')
+			],'email');
+
 
 		$this->loadViewsFrom(__DIR__ . '/../../../resources/views/chimerauser', 'chimerauser');
 
@@ -37,6 +41,10 @@ class UserServiceProvider extends ServiceProvider
 		$this->app->bind(
 			\ChimeraRocks\User\Repositories\UserRepositoryInterface::class,
 				\ChimeraRocks\User\Repositories\UserRepositoryEloquent::class
+		);
+
+		$this->app->register(
+			\ChimeraRocks\User\Providers\EventServiceProvider::class
 		);
 
 		$this->app->singleton('chimerarocks_user_route', function() {
