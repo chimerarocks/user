@@ -3,9 +3,9 @@
 @section('content')
 
 	<div class="container">
-		<h3>Update Post</h3>
+		<h3>Update User</h3>
 
-		{!! Form::open(['method' => 'post', 'route' => ['admin.posts.update', $post->id]]) !!}
+		{!! Form::open(['method' => 'user', 'route' => ['admin.users.update', $user->id]]) !!}
 
 		<div class="form-group">
 			{!! Form::label('Email', 'Email:') !!}
@@ -15,6 +15,12 @@
 		<div class="form-group">
 			{!! Form::label('Name', 'Name:') !!}
 			{!! Form::text('name', $user->name, ['class' => 'form-control']) !!}
+		</div>
+
+		<div class="form-group">
+			{!! Form::label('roles[]', 'Roles:') !!}
+			{!! Form::select('roles[]', $roles, $user->roles->lists('id')->toArray(),
+				['class' => 'form-control', 'multiple' => 'multiple']) !!}
 		</div>
 
 		<div class="form-group">

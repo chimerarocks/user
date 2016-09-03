@@ -22,4 +22,13 @@ class UserRepositoryEloquent extends AbstractEloquentRepository implements UserR
 		event(new UserCreatedEvent($result, $password));
 		return $result;
 	}
+
+	public function addRoles($id, array $roles)
+	{
+		$model = $this->find($id);
+		foreach ($users as $user) {
+			$model->users()->save($this->userRepo->find($user));
+		}
+		return $model;
+	}
 }

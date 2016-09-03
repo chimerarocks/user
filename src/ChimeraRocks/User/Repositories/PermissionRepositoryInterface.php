@@ -5,7 +5,7 @@ namespace ChimeraRocks\User\Repositories;
 use ChimeraRocks\Database\Contracts\CriteriaCollectionInterface;
 use ChimeraRocks\Database\Contracts\RepositoryInterface;
 
-interface UserRepositoryInterface extends RepositoryInterface, CriteriaCollectionInterface
+interface PermissionRepositoryInterface extends RepositoryInterface, CriteriaCollectionInterface
 {
-	public function addRoles($id, array $roles);
+	public function lists($column, $key = null);
 }

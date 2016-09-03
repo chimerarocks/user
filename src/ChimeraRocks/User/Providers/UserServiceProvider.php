@@ -43,8 +43,22 @@ class UserServiceProvider extends ServiceProvider
 				\ChimeraRocks\User\Repositories\UserRepositoryEloquent::class
 		);
 
+		$this->app->bind(
+			\ChimeraRocks\User\Repositories\RoleRepositoryInterface::class,
+				\ChimeraRocks\User\Repositories\RoleRepositoryEloquent::class
+		);
+
+		$this->app->bind(
+			\ChimeraRocks\User\Repositories\PermissionRepositoryInterface::class,
+				\ChimeraRocks\User\Repositories\PermissionRepositoryEloquent::class
+		);
+
 		$this->app->register(
 			\ChimeraRocks\User\Providers\EventServiceProvider::class
+		);
+
+		$this->app->register(
+			\ChimeraRocks\User\Providers\AuthServiceProvider::class
 		);
 
 		$this->app->singleton('chimerarocks_user_route', function() {

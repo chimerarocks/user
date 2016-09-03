@@ -18,6 +18,16 @@
 		</div>
 
 		<div class="form-group">
+			{!! Form::label('Password', 'Password:') !!}
+			{!! Form::password('password', ['class' => 'form-control']) !!}
+		</div>
+
+		<div class="form-group">
+			{!! Form::label('roles[]', 'Roles:') !!}
+			{!! Form::select('roles[]', $roles, null,['class' => 'form-control', 'multiple' => 'multiple']) !!}
+		</div>
+
+		<div class="form-group">
 			{!! Form::submit('Create User', ['class' => 'form-control']) !!}
 		</div>
 

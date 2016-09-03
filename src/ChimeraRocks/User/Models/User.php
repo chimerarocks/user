@@ -2,9 +2,11 @@
 
 namespace ChimeraRocks\User\Models;
 
+use ChimeraRocks\User\Models\Role;
+use Illuminate\Contracts\Auth\Access\Authorizable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements Authorizable
 {
     protected $table = "chimerarocks_users";
 
@@ -25,4 +27,20 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function roles() 
+    {
+        return $this->belongsToMany(Role::class, 'chimerarocks_users_roles', 'user_id', 'role_id');
+    }
+
+    public function hasRole($role)
+    {
+        return is_string($role) ?
+            $this->roles->contains('name', $role) : $role->intersect($this->roles)->count();
+    }
+
+    public function isAdmin()
+    {
+        return $this->hasRole(Role::ROLE_ADMIN);
+    }
 }
