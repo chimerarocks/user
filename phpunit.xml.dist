@@ -11,6 +11,15 @@
 		stopOnFailure="false"
 		syntaxCheck="false"
 	>
+	<!-- 
+		<php>
+			<env name="DB_CONNECTION" value="mysql"></env>
+			<env name="DB_HOST" value=""></env>
+			<env name="DB_DATABASE" value=""></env>
+			<env name="DB_USERNAME" value=""></env>
+			<env name="DB_PASSWORD" value=""></env>
+		</php>
+	 -->
 		<testsuites>
 			<testsuite name="Package Test Suite">
 				<directory suffix=".php">./tests/Test/</directory>

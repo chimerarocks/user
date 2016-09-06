@@ -1,6 +1,7 @@
 <?php
 
 use ChimeraRocks\User\Models\Permission;
+use ChimeraRocks\User\Models\Role;
 use ChimeraRocks\User\Models\User;
 use Illuminate\Database\Migrations\Migration;
 
@@ -31,6 +32,5 @@ class CreateUsers extends Migration
      */
     public function down()
     {
-
     }
 }

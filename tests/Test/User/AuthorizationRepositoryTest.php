@@ -11,14 +11,14 @@ use ChimeraRocks\User\Repositories\RoleRepositoryInterface;
 use ChimeraRocks\User\Repositories\UserRepositoryInterface;
 use Illuminate\Support\Facades\Hash;
 use Mockery;
-use Test\AbstactTestCase;
+use Test\AbstractTestCase;
 
-class AuthorizationRepositoryTest extends AbstactTestCase
+class AuthorizationRepositoryTest extends AbstractTestCase
 {
 	public function setUp()
 	{
 		parent::setUp();
-		$this->migrate();
+		$this->migrateRefresh();
 	}
 
 	public function test_can_create_user()

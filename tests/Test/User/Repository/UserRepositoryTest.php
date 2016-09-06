@@ -7,9 +7,9 @@ use ChimeraRocks\User\Repositories\UserEloquentInterface;
 use ChimeraRocks\User\Repositories\UserRepositoryInterface;
 use Illuminate\Support\Facades\Hash;
 use Mockery;
-use Test\AbstactTestCase;
+use Test\AbstractTestCase;
 
-class UserRepositoryTest extends AbstactTestCase
+class UserRepositoryTest extends AbstractTestCase
 {
 
 	private $repository;
@@ -18,7 +18,8 @@ class UserRepositoryTest extends AbstactTestCase
 	{
 		parent::setUp();
 		$this->migrate();
-		$this->repository = new UserRepositoryEloquent();
+		$mock = Mockery::mock(RoleRepositoryInterface::class);
+		$this->repository = new UserRepositoryEloquent($mock);
 	}
 
 	public function test_can_create_user()

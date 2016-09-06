@@ -2,7 +2,7 @@
 
 use ChimeraRocks\User\Models\Permission;
 use ChimeraRocks\User\Models\Role;
-use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateDataAcl extends Migration
 {

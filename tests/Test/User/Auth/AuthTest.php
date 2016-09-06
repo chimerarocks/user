@@ -5,9 +5,9 @@ namespace Test\User\Models;
 use ChimeraRocks\User\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Orchestra\Testbench\Traits\WithFactories;
-use Test\AbstactTestCase;
+use Test\AbstractTestCase;
 
-class AuthTest extends AbstactTestCase
+class AuthTest extends AbstractTestCase
 {
 	use WithFactories;
 
@@ -15,6 +15,7 @@ class AuthTest extends AbstactTestCase
 	{
 		parent::setUp();
 		$this->migrate();
+		$this->migrateRefresh();
 		$this->withFactories(__DIR__ . '/../../../../src/resources/factories');
 	}
 	

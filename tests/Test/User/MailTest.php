@@ -3,13 +3,14 @@
 namespace Test\User;
 
 use ChimeraRocks\User\Events\UserCreatedEvent;
+use ChimeraRocks\User\Repositories\RoleRepositoryInterface;
 use ChimeraRocks\User\Repositories\UserEloquentInterface;
 use ChimeraRocks\User\Repositories\UserRepositoryInterface;
 use Illuminate\Support\Facades\Hash;
 use Mockery;
-use Test\AbstactMailTestCase;
+use Test\AbstractMailTestCase;
 
-class MailTest extends AbstactMailTestCase
+class MailTest extends AbstractMailTestCase
 {
 
 	private $repository;
@@ -18,7 +19,8 @@ class MailTest extends AbstactMailTestCase
 	{
 		parent::setUp();
 		$this->migrate();
-		$this->repository = new UserRepositoryEloquent();
+		$mock = Mockery::mock(RoleRepositoryInterface::class);
+		$this->repository = new UserRepositoryEloquent($mock);
 	}
 
 	public function test_can_create_user()

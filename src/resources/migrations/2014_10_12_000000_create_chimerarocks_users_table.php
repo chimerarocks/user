@@ -29,6 +29,6 @@ class CreateChimerarocksUsersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('users');
+        Schema::drop('chimerarocks_users');
     }
 }

@@ -5,9 +5,9 @@ namespace Test\User\Event;
 use ChimeraRocks\User\Events\UserCreatedEvent;
 use ChimeraRocks\User\Models\User;
 use Mockery;
-use Test\AbstactTestCase;
+use Test\AbstractTestCase;
 
-class UserCreatedEventTest extends AbstactTestCase
+class UserCreatedEventTest extends AbstractTestCase
 {
 	protected $event;
 

@@ -2,9 +2,9 @@
 
 namespace Test;
 
-use Test\AbstactTestCase;
+use Test\AbstractTestCase;
 
-abstract class AbstactMailTestCase extends AbstactTestCase
+abstract class AbstractMailTestCase extends AbstractTestCase
 {
     public static function setUpBeforeClass()
     {

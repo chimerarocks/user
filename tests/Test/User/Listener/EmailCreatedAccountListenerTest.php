@@ -9,9 +9,9 @@ use Illuminate\Mail\Mailer;
 use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Event;
 use Mockery;
-use Test\AbstactTestCase;
+use Test\AbstractTestCase;
 
-class EmailCreatedAccountListenerTest extends AbstactTestCase
+class EmailCreatedAccountListenerTest extends AbstractTestCase
 {
 	protected $event;
 
