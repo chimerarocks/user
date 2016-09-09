@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => 'user@chimerarocks.package.test',
+    'from' => ['address' => 'user@chimerarocks.package.test', 'name' => 'Chimera Rocks'],
 
     /*
     |--------------------------------------------------------------------------

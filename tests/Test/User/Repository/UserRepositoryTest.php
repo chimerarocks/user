@@ -3,8 +3,8 @@
 namespace Test\User\Repository;
 
 use ChimeraRocks\User\Events\UserCreatedEvent;
-use ChimeraRocks\User\Repositories\UserEloquentInterface;
-use ChimeraRocks\User\Repositories\UserRepositoryInterface;
+use ChimeraRocks\User\Repositories\RoleRepositoryInterface;
+use ChimeraRocks\User\Repositories\UserRepositoryEloquent;
 use Illuminate\Support\Facades\Hash;
 use Mockery;
 use Test\AbstractTestCase;
@@ -31,8 +31,8 @@ class UserRepositoryTest extends AbstractTestCase
 			'password' => '654321'
 		]);
 
-		$this->assertEquals('Test', $user->name);
+		$this->assertEquals('Teste', $user->name);
 		$this->assertEquals('test@test.com', $user->email);
-		$this->assertTrue(Hash::check('123456', $user->password));
+		$this->assertTrue(Hash::check('654321', $user->password));
 	}
 }

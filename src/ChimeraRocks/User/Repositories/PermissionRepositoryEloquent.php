@@ -3,6 +3,7 @@
 namespace ChimeraRocks\User\Repositories;
 
 use ChimeraRocks\Database\AbstractEloquentRepository;
+use ChimeraRocks\User\Models\Permission;
 use ChimeraRocks\User\Repositories\PermissionRepositoryInterface;
 
 class PermissionRepositoryEloquent extends AbstractEloquentRepository implements PermissionRepositoryInterface

@@ -15,7 +15,6 @@ class AuthTest extends AbstractTestCase
 	{
 		parent::setUp();
 		$this->migrate();
-		$this->migrateRefresh();
 		$this->withFactories(__DIR__ . '/../../../../src/resources/factories');
 	}
 	

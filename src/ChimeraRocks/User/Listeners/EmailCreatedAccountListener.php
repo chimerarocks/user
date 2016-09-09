@@ -24,7 +24,7 @@ class EmailCreatedAccountListener
 		], function($message) use ($user) {
 			$message
 			    ->to($user->email, $user->name)
-				->subject("{$userMock->name}, sua conta foi criada!");
+				->subject("{$user->name}, sua conta foi criada!");
 		});
 
 		return $success;

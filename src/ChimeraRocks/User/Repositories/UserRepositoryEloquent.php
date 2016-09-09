@@ -5,10 +5,20 @@ namespace ChimeraRocks\User\Repositories;
 use ChimeraRocks\Database\AbstractEloquentRepository;
 use ChimeraRocks\User\Events\UserCreatedEvent;
 use ChimeraRocks\User\Models\User;
+use ChimeraRocks\User\Repositories\RoleRepositoryInterface;
 use ChimeraRocks\User\Repositories\UserRepositoryInterface;
 
 class UserRepositoryEloquent extends AbstractEloquentRepository implements UserRepositoryInterface
 {
+	private $roleRepository;
+
+
+	public function __construct(RoleRepositoryInterface $roleRepository)
+	{
+		parent::__construct();
+		$this->roleRepository = $roleRepository;
+	}
+
 	public function model()
 	{
 		return User::class;
@@ -26,8 +36,8 @@ class UserRepositoryEloquent extends AbstractEloquentRepository implements UserR
 	public function addRoles($id, array $roles)
 	{
 		$model = $this->find($id);
-		foreach ($users as $user) {
-			$model->users()->save($this->userRepo->find($user));
+		foreach ($roles as $role) {
+			$model->roles()->save($this->roleRepository->find($role));
 		}
 		return $model;
 	}

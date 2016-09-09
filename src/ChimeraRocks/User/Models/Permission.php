@@ -2,7 +2,6 @@
 
 namespace ChimeraRocks\User\Models;
 
-use ChimeraRocks\User\Models\Permission;
 use Illuminate\Database\Eloquent\Model;
 
 class Permission extends Model

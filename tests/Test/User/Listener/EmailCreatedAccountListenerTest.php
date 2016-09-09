@@ -1,6 +1,6 @@
 <?php
 
-namespace Test\User\Event;
+namespace Test\User\Listener;
 
 use ChimeraRocks\User\Events\UserCreatedEvent;
 use ChimeraRocks\User\Listeners\EmailCreatedAccountListener;

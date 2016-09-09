@@ -30,21 +30,7 @@ abstract class AbstractTestCase extends TestCase
 
 	public function migrate()
 	{
-		$this->artisan('migrate', [
-			'--realpath' => realpath(__DIR__ . '/../../src/resources/migrations')
-		]);
-	}
-
-	public function migrateRefresh()
-	{
 		$this->artisan('migrate:refresh', [
-			'--realpath' => realpath(__DIR__ . '/../../src/resources/migrations')
-		]);
-	}
-
-	public function migrateReset()
-	{
-		$this->artisan('migrate:reset', [
 			'--realpath' => realpath(__DIR__ . '/../../src/resources/migrations')
 		]);
 	}

@@ -33,14 +33,14 @@ class UserCreatedEventTest extends AbstractTestCase
 
 	public function test_can_get_password()
 	{
-		$this->assertInstanceOf('123456', $this->event->getPassword());
+		$this->assertEquals('123456', $this->event->getPassword());
 	}
 
 	public function test_can_set_password()
 	{
 		$result = $this->event->setPassword('654321');
 		$this->assertInstanceOf(UserCreatedEvent::class, $result);
-		$this->assertInstanceOf('654321', $this->event->getPassword());
+		$this->assertEquals('654321', $this->event->getPassword());
 	}
 
 	public function test_constructor()
