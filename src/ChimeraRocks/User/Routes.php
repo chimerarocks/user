@@ -7,7 +7,11 @@ Route::group([
 	'middleware' => ['web', 'auth']
 	], function() {
 	
-	Route::group(['prefix' => 'users', 'as' => 'users.'], function() {
+	Route::group([
+		'prefix' => 'users', 
+		'as' => 'users.',
+		'middleware' => ['access_users']
+		], function() {
 		Route::get('/', ['uses' => 'AdminUserController@index', 'as' => 'index']);
 		Route::get('/create', ['uses' => 'AdminUserController@create', 'as' => 'create']);
 		Route::post('/store', ['uses' => 'AdminUserController@store', 'as' => 'store']);
@@ -15,7 +19,11 @@ Route::group([
 		Route::post('/update/{id}', ['uses' => 'AdminUserController@update', 'as' => 'update']);
 	});
 
-	Route::group(['prefix' => 'roles', 'as' => 'roles.'], function() {
+	Route::group([
+		'prefix' => 'roles', 
+		'as' => 'roles.',
+		'middleware' => ['authorization:access_roles'],
+		], function() {
 		Route::get('/', ['uses' => 'AdminRoleController@index', 'as' => 'index']);
 		Route::get('/create', ['uses' => 'AdminRoleController@create', 'as' => 'create']);
 		Route::post('/store', ['uses' => 'AdminRoleController@store', 'as' => 'store']);
@@ -23,7 +31,11 @@ Route::group([
 		Route::post('/update/{id}', ['uses' => 'AdminRoleController@update', 'as' => 'update']);
 	});
 	
-	Route::group(['prefix' => 'permissions', 'as' => 'permissions.'], function() {
+	Route::group([
+		'prefix' => 'permissions', 
+		'as' => 'permissions.', 
+		'middleware' => ['authorization:access_permissions']
+		], function() {
 		Route::get('/', ['uses' => 'AdminPermissionController@index', 'as' => 'index']);
 		Route::get('/view/{id}', ['uses' => 'AdminPermissionController@view', 'as' => 'view']);
 	});

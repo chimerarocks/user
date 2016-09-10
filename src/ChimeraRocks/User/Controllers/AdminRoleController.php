@@ -18,7 +18,6 @@ class AdminRoleController extends Controller
 		PermissionRepositoryInterface $permissinoRepository
 		)
 	{
-		$this->authorize('access_roles');
 		$this->roleRepository = $roleRepository;
 		$this->response = $response;
 		$this->permissinoRepository = $permissinoRepository;

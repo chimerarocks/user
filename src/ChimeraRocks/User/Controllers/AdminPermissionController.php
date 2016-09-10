@@ -13,7 +13,6 @@ class AdminPermisionController extends Controller
 
 	public function __construct(PermissionRepositoryInterface $permissionRepository, ResponseFactory $response)
 	{
-		$this->authorize('access_permissions');
 		$this->permissionRepository = $permissionRepository;
 		$this->response = $response;
 	}

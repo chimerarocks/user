@@ -15,7 +15,6 @@ class AdminUserController extends Controller
 
 	public function __construct(UserRepositoryInterface $userRepository, ResponseFactory $response, RoleRepositoryInterface $roleRepository)
 	{
-		$this->authorize('access_users');
 		$this->userRepository = $userRepository;
 		$this->response = $response;
 		$this->roleRepository = $roleRepository;
