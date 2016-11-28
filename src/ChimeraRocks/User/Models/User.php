@@ -6,10 +6,11 @@ use ChimeraRocks\User\Models\Role;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\Access\Authorizable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable implements Authorizable
 {
-    use Notifiable;
+    use HasApiTokens, Notifiable;
 
     protected $table = "chimerarocks_users";
 
