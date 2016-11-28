@@ -6,7 +6,7 @@ use ChimeraRocks\User\Repositories\PermissionRepositoryInterface;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
 
-class AdminPermisionController extends Controller
+class AdminPermissionController extends Controller
 {
 	private $permissionRepository;
 	private $response;

@@ -2,6 +2,7 @@
 
 namespace ChimeraRocks\User\Controllers;
 
+use ChimeraRocks\User\Repositories\PermissionRepositoryInterface;
 use ChimeraRocks\User\Repositories\RoleRepositoryInterface;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
