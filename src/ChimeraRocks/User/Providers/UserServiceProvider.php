@@ -61,6 +61,10 @@ class UserServiceProvider extends ServiceProvider
 			\ChimeraRocks\User\Providers\AuthServiceProvider::class
 		);
 
+		$this->app->register(
+			\Laravel\Passport\PassportServiceProvider::class
+		);
+
 		$this->app->singleton('chimerarocks_user_route', function() {
 			return new Router();
 		});
