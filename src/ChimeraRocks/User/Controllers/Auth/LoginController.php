@@ -1,8 +1,8 @@
 <?php
 
-namespace Kadesc\Http\Controllers\Auth;
+namespace ChimeraRocks\User\Controllers\Auth;
 
-use Kadesc\Http\Controllers\Controller;
+use ChimeraRocks\User\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller

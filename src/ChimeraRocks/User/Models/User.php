@@ -3,11 +3,14 @@
 namespace ChimeraRocks\User\Models;
 
 use ChimeraRocks\User\Models\Role;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\Access\Authorizable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements Authorizable
 {
+    use Notifiable;
+
     protected $table = "chimerarocks_users";
 
     /**

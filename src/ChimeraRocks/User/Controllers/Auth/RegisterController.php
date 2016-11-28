@@ -1,9 +1,9 @@
 <?php
 
-namespace Kadesc\Http\Controllers\Auth;
+namespace ChimeraRocks\User\Controllers\Auth;
 
-use Kadesc\User;
-use Kadesc\Http\Controllers\Controller;
+use ChimeraRocks\User\Models\User;
+use ChimeraRocks\User\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
