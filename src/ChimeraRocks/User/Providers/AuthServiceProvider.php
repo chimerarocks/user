@@ -34,7 +34,7 @@ class AuthServiceProvider extends ServiceProvider
             $permissionRepo = app(PermissionRepositoryInterface::class);
             $permissions = $permissionRepo->all();
 
-            foreach ($permssions as $p) {
+            foreach ($permissions as $p) {
                 $gate->define($p->name, function($user) use ($p) {
                     return $user->isAdmin() || $user->hasRole($p->roles);
                 });
