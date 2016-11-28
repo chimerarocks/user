@@ -45,7 +45,7 @@ abstract class AbstractMailTestCase extends AbstractTestCase
     {
         parent::getEnvironmentSetUp($app);
         config(['app' => [
-            'key' => 12345678912345678912345678912345,
+            'key' => 'SomeRandomStringWith32Characters',
             'cipher' => 'AES-256-CBC'
         ]]);
         config(['mail' => require __DIR__ . '/config/mail.php']);
