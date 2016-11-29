@@ -16,7 +16,15 @@ composer require chimerarocks/user
 'providers' => [
     ...
     ChimeraRocks\User\Providers\UserServiceProvider::class,
+    Collective\Html\HtmlServiceProvider::class,
 ],
+
+'aliases' => [
+    // ...
+      'Form' => Collective\Html\FormFacade::class,
+      'Html' => Collective\Html\HtmlFacade::class,
+    // ...
+ ],
 ```
 
 ###3. Publish views and migrations
@@ -28,7 +36,7 @@ php artisan vendor:publish
 
 ###4. Refactoring User
 1. remove app/User.php
-2. change App\User class in all class of App\Controllers\Auth to ChimeraRocks\User\Models\User
+2. remove Auth\RegisterController.php or change the namespache of User to ChimeraRocks\User\Models\User
 
 ###5. Change users provider
 
@@ -48,7 +56,8 @@ php artisan vendor:publish
 ```php
 $routeMiddleware = [
     ...
-    'authorization' => ChimeraRocks\User\Middlewares\Authorization
+    'authorization' => \ChimeraRocks\User\Middlewares\Authorization::class,
+    ...
 ]
 ```
 
