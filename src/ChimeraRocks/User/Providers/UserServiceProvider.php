@@ -25,8 +25,9 @@ class UserServiceProvider extends ServiceProvider
 			__DIR__ . '/../../../resources/views/email' => base_path('resources/views/email')
 			],'email');
 
-
-		$this->loadViewsFrom(__DIR__ . '/../../../resources/views/chimerauser', 'chimerauser');
+		$this->publishes([
+			__DIR__ . '/../../../resources/views/chimerauser' => base_path('resources/views/chimerauser')
+		],'chimerauser');
 
 		require __DIR__ . '/../Routes.php';
 	}
