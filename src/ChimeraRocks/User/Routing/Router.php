@@ -9,8 +9,7 @@ class Router
 	use \Illuminate\Console\AppNamespaceDetectorTrait;
 	public function auth()
 	{
-		dd($this->getAppNamespace());
-		$namespace = "\\ChimeraRocks\\User\\Controllers";
+		$namespace = "\\" . $this->getAppNamespace() . "Http\\Controllers";
 
 		Route::group(['namespace' => null], function () use ($namespace) {
 			// Authentication Routes...

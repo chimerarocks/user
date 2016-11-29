@@ -48,6 +48,8 @@
             <ul class="nav navbar-nav">
                 <li><a href="{{ url('/home') }}">Home</a></li>
                 <li><a href="{{ url('/admin/users') }}">Usuários</a></li>
+                <li><a href="{{ url('/admin/roles') }}">Papéis</a></li>
+                <li><a href="{{ url('/admin/permissions') }}">Permissões</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->

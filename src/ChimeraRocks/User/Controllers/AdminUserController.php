@@ -36,7 +36,7 @@ class AdminUserController extends Controller
 
 	public function store(Request $request)
 	{
-		$this->userRepository->create($request->all());
+		$user = $this->userRepository->create($request->all());
 		$this->userRepository->addRoles($user->id, $request->get('roles'));
 		return redirect()->route('admin.users.index');
 	}

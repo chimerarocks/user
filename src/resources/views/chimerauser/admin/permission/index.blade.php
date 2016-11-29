@@ -3,8 +3,7 @@
 @section('content')
 
 	<div class="container">
-		<h3>Users</h3>
-		<a href="{{route('admin.permissions.create')}}">Create</a>
+		<h3>Permissions</h3>
 		<br><br>
 
 		<table class="table table-bordered">

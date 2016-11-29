@@ -10,7 +10,7 @@ Route::group([
 	Route::group([
 		'prefix' => 'users', 
 		'as' => 'users.',
-		'middleware' => ['access_users']
+		'middleware' => ['authorization:access_users']
 		], function() {
 		Route::get('/', ['uses' => 'AdminUserController@index', 'as' => 'index']);
 		Route::get('/create', ['uses' => 'AdminUserController@create', 'as' => 'create']);

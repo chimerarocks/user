@@ -35,6 +35,13 @@ class RoleRepositoryEloquent extends AbstractEloquentRepository implements RoleR
 	public function lists($column, $key = null)
 	{
 		$this->applyCriteria();
-		return $this->model->lists($column, $key);
+		$roles = $this->model->get([$column, 'id']);
+
+		$list = [];
+		foreach ($roles as $p) {
+			$list[$p->id] = $p->$column;
+		}
+
+		return $list;
 	}
 }

@@ -29,6 +29,12 @@ class UserServiceProvider extends ServiceProvider
 			__DIR__ . '/../../../resources/views/chimerauser' => base_path('resources/views/chimerauser')
 		],'chimerauser');
 
+		$this->publishes([
+			__DIR__ . '/../../../resources/views/layouts' => base_path('resources/views/layouts')
+		],'layouts');
+
+		$this->loadViewsFrom(base_path('resources/views/chimerauser'), 'chimerauser');
+
 		require __DIR__ . '/../Routes.php';
 	}
 

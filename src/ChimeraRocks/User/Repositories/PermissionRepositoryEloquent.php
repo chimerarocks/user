@@ -16,6 +16,13 @@ class PermissionRepositoryEloquent extends AbstractEloquentRepository implements
 	public function lists($column, $key = null)
 	{
 		$this->applyCriteria();
-		return $this->model->lists($column, $key);
+		$permissions = $this->model->get([$column, 'id']);
+
+		$list = [];
+		foreach ($permissions as $p) {
+			$list[$p->id] = $p->$column;
+		}
+
+		return $list;
 	}
 }

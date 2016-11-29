@@ -27,6 +27,6 @@ class AdminPermissionController extends Controller
 	public function view($id)
 	{
 		$permission = $this->permissionRepository->find($id);
-		return $this->response->view('chimerauser::admin.permission.view', compact($permission));
+		return $this->response->view('chimerauser::admin.permission.view', ['permission' => $permission]);
 	}
 }

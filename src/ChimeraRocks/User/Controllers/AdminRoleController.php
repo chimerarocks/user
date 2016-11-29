@@ -11,17 +11,17 @@ class AdminRoleController extends Controller
 {
 	private $roleRepository;
 	private $response;
-	private $permissinoRepository;
+	private $permissionRepository;
 
 	public function __construct(
 		RoleRepositoryInterface $roleRepository, 
 		ResponseFactory $response,
-		PermissionRepositoryInterface $permissinoRepository
+		PermissionRepositoryInterface $permissionRepository
 		)
 	{
 		$this->roleRepository = $roleRepository;
 		$this->response = $response;
-		$this->permissinoRepository = $permissinoRepository;
+		$this->permissionRepository = $permissionRepository;
 	}
 
 	public function index()

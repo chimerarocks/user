@@ -17,11 +17,21 @@ class CreateDataAcl extends Migration
 			'name' => Role::ROLE_ADMIN
 		]);
 
+		$permissionAccessRoles = Permission::create([
+			'name' => 'access_permissions',
+			'desctiption' => 'Permissão para acessar a àrea de papéis'
+		]);
+		$permissionAccessPermissions = Permission::create([
+			'name' => 'access_roles',
+			'desctiption' => 'Permissão para acessar a àrea de permissões'
+		]);
 		$permissionAccessUsers = Permission::create([
 			'name' => 'access_users',
-			'desctipion' => 'Permissão para acessar a àrea de usuários'
+			'desctiption' => 'Permissão para acessar a àrea de users'
 		]);
 
+		$roleAdmin->permissions()->save($permissionAccessRoles);
+		$roleAdmin->permissions()->save($permissionAccessPermissions);
 		$roleAdmin->permissions()->save($permissionAccessUsers);
     }
 
