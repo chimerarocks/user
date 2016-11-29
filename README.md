@@ -16,7 +16,15 @@ composer require chimerarocks/user
 'providers' => [
     ...
     ChimeraRocks\User\Providers\UserServiceProvider::class,
+    Collective\Html\HtmlServiceProvider::class,
 ],
+
+'aliases' => [
+    // ...
+      'Form' => Collective\Html\FormFacade::class,
+      'Html' => Collective\Html\HtmlFacade::class,
+    // ...
+ ],
 ```
 
 ###3. Publish views and migrations
