@@ -48,7 +48,7 @@ php artisan vendor:publish
 ```php
 $routeMiddleware = [
     ...
-    'authorization' => ChimeraRocks\User\Middlewares\Authorization::class,
+    'authorization' => \ChimeraRocks\User\Middlewares\Authorization::class,
     ...
 ]
 ```
