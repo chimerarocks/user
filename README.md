@@ -52,12 +52,19 @@ $routeMiddleware = [
 ]
 ```
 
-###7. Generate schema
+###7. Add the routes
+####on web.php
+
+```php
+App::make('chimerarocks_user_route')->auth();
+```
+
+###8. Generate schema
 ```
 php artisan migrate
 ```
 
-###8. Install Passport
+###9. Install Passport
 ```
 php artisan passport:install
 ```
