@@ -42,12 +42,22 @@ php artisan vendor:publish
    ],
 ],
 ```
-###6. Generate schema
+###6. Add the middleware
+####on kernel.php
+
+```php
+$routeMiddleware = [
+    ...
+    'authorization' => ChimeraRocks\User\Middlewares\Authorization
+]
+```
+
+###7. Generate schema
 ```
 php artisan migrate
 ```
 
-###7. Install Passport
+###8. Install Passport
 ```
 php artisan passport:install
 ```
