@@ -6,20 +6,22 @@ use Illuminate\Support\Facades\Route;
 
 class Router
 {
+	use \Illuminate\Console\AppNamespaceDetectorTrait;
 	public function auth()
-	{	
+	{
+		dd($this->getAppNamespace());
 		$namespace = "\\ChimeraRocks\\User\\Controllers";
 
 		Route::group(['namespace' => null], function () use ($namespace) {
 			// Authentication Routes...
-	        Route::get('login', $namespace . '\\Auth\AuthController@showLoginForm');
-	        Route::post('login', $namespace . '\\Auth\\AuthController@login');
-	        Route::get('logout', $namespace . '\\Auth\\AuthController@logout');
+	        Route::get('login', $namespace . '\\Auth\\LoginController@showLoginForm');
+	        Route::post('login', $namespace . '\\Auth\\LoginController@login');
+	        Route::get('logout', $namespace . '\\Auth\\LoginController@logout');
 
 	        // Password Reset Routes...
-	        Route::get('password/reset/{token?}', $namespace . '\\Auth\\PasswordController@showResetForm');
-	        Route::post('password/email', $namespace . '\\Auth\\PasswordController@sendResetLinkEmail');
-	        Route::post('password/reset', $namespace . '\\Auth\\PasswordController@reset');
+	        Route::get('password/reset/{token?}', $namespace . '\\Auth\\ForgotPasswordController@showResetForm');
+	        Route::post('password/email', $namespace . '\\Auth\\ForgotPasswordController@sendResetLinkEmail');
+	        Route::post('password/reset', $namespace . '\\Auth\\ForgotPasswordController@reset');
 		});
 	}
 }

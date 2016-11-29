@@ -19,7 +19,7 @@ class CreateUsers extends Migration
         $user = User::create([
             'name' => 'Administrator',
             'email' => 'admin@user.com',
-            'password' => bcrypt(123546)
+            'password' => bcrypt('secret')
         ]);
 
     	$user->roles()->save($roleAdmin);
