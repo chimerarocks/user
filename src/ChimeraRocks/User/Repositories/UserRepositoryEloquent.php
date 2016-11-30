@@ -4,7 +4,6 @@ namespace ChimeraRocks\User\Repositories;
 
 use ChimeraRocks\Database\AbstractEloquentRepository;
 use ChimeraRocks\User\Events\UserCreatedEvent;
-use ChimeraRocks\User\Models\User;
 use ChimeraRocks\User\Repositories\RoleRepositoryInterface;
 use ChimeraRocks\User\Repositories\UserRepositoryInterface;
 
@@ -40,5 +39,24 @@ class UserRepositoryEloquent extends AbstractEloquentRepository implements UserR
 			$model->roles()->save($this->roleRepository->find($role));
 		}
 		return $model;
+	}
+
+	public function removeRoles($id)
+	{
+		$model = $this->find($id);
+		$model->roles()->detach();
+	}
+	
+	public function listRoles($column, $id)
+	{
+		$model = $this->find($id);
+		$roles = $model->roles()->getResults();
+
+		$list = [];
+		foreach ($roles as $p) {
+			$list[$p->id] = $p->$column;
+		}
+
+		return $list;
 	}
 }

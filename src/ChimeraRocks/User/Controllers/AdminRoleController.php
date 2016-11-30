@@ -46,15 +46,17 @@ class AdminRoleController extends Controller
 
 	public function edit($id)
 	{
-		$permissions = $this->permissionRepository->lists('name', 'id');
+		$permissions = $this->permissionRepository->lists('name');
+		$rolePermissions = $this->roleRepository->listPermissions('id', $id);
 		$role = $this->roleRepository->find($id);
-		return $this->response->view('chimerauser::admin.role.edit', compact('role', 'permissions'));
+		return $this->response->view('chimerauser::admin.role.edit', compact('role', 'permissions', 'rolePermissions'));
 	}
 
 	public function update(Request $request, $id)
 	{
 		$data = $request->all();
 		$role = $this->roleRepository->update($data, $id);
+		$this->roleRepository->removePermissions($role->id);
 		$this->roleRepository->addPermissions($role->id, $request->get('permissions'));
 
 		return redirect()->route('admin.roles.index');

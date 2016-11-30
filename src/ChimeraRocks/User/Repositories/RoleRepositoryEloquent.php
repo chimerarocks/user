@@ -32,6 +32,12 @@ class RoleRepositoryEloquent extends AbstractEloquentRepository implements RoleR
 		return $model;
 	}
 
+	public function removePermissions($id)
+	{
+		$model = $this->find($id);
+		$model->permissions()->detach();
+	}
+
 	public function lists($column, $key = null)
 	{
 		$this->applyCriteria();
@@ -39,6 +45,19 @@ class RoleRepositoryEloquent extends AbstractEloquentRepository implements RoleR
 
 		$list = [];
 		foreach ($roles as $p) {
+			$list[$p->id] = $p->$column;
+		}
+
+		return $list;
+	}
+
+	public function listPermissions($column, $id)
+	{
+		$model = $this->find($id);
+		$permissions = $model->permissions()->getResults();
+
+		$list = [];
+		foreach ($permissions as $p) {
 			$list[$p->id] = $p->$column;
 		}
 

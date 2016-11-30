@@ -9,5 +9,9 @@ interface RoleRepositoryInterface extends RepositoryInterface, CriteriaCollectio
 {
 	public function addPermissions($id, array $permissions);
 
+	public function removePermissions($id);
+
 	public function lists($column, $key = null);
+
+	public function listPermissions($column, $id);
 }

@@ -19,7 +19,7 @@
 				<tr>
 					<td>{{$permission->id}}</td>
 					<td>{{$permission->name}}</td>
-					<td><a href="{{route('admin.permissions.view', ['id' => $permission->id])}}">Update</a></td>
+					<td><a href="{{route('admin.permissions.view', ['id' => $permission->id])}}">View</a></td>
 				@empty
 					<td colspan="4"> Nenhuma permission registrada </td>
 				</tr>

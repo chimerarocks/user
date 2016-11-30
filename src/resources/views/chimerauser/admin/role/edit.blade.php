@@ -14,7 +14,7 @@
 
 		<div class="form-group">
 			{!! Form::label('permissions[]', 'Permissions:') !!}
-			{!! Form::select('permissions[]', $permissions, $role->permissions->lists('id')->toArray(),
+			{!! Form::select('permissions[]', $permissions, $rolePermissions,
 				['class' => 'form-control', 'multiple' => 'multiple']) !!}
 		</div>
 

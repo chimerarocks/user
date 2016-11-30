@@ -43,9 +43,10 @@ class AdminUserController extends Controller
 
 	public function edit($id)
 	{
-		$roles = $this->roleRepository->lists('name', 'id');
+		$roles = $this->roleRepository->lists('name');
+		$userRoles = $this->userRepository->listRoles('id', $id);
 		$user = $this->userRepository->find($id);
-		return $this->response->view('chimerauser::admin.user.edit', compact('user', 'roles'));
+		return $this->response->view('chimerauser::admin.user.edit', compact('user', 'roles', 'userRoles'));
 	}
 
 	public function update(Request $request, $id)
@@ -55,6 +56,7 @@ class AdminUserController extends Controller
 			unset($data['password']);
 		}
 		$user = $this->userRepository->update($data, $id);
+		$this->userRepository->removeRoles($user->id);
 		$this->userRepository->addRoles($user->id, $request->get('roles'));
 		return redirect()->route('admin.users.index');
 	}
