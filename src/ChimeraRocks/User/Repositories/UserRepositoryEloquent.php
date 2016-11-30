@@ -4,6 +4,7 @@ namespace ChimeraRocks\User\Repositories;
 
 use ChimeraRocks\Database\AbstractEloquentRepository;
 use ChimeraRocks\User\Events\UserCreatedEvent;
+use ChimeraRocks\User\Models\User;
 use ChimeraRocks\User\Repositories\RoleRepositoryInterface;
 use ChimeraRocks\User\Repositories\UserRepositoryInterface;
 
